@@ -1,6 +1,7 @@
 #ifndef DECK_H
 #define DECK_H
 #include <cstdint>
+#include <stdbool.h>
 
 enum EmptyDeckOption {
     EDO_END_GAME,
@@ -23,14 +24,15 @@ struct Deck {
  * @param cards bits representing the Cards present in the deck
  * @return pointer to the created Deck
  */
-Deck* deck_initializeFromInt( uint64_t cards );
+struct Deck* deck_initializeFromInt( uint64_t cards );
 
 /**
  * Initialize a standard deck, with Ace through King, all Suits
  *
  * @return pointer to the created Deck
  */
-Deck* deck_initializeStandard();
+struct Deck* deck_initializeStandard();
 
+bool deck_addCard( struct Deck *deck, uint8_t card );
 
 #endif
