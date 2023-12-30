@@ -67,4 +67,6 @@ bool deck_addCard( struct Deck *deck, uint8_t card );
  */
 bool deck_addCards( struct Deck *deck, uint64_t cards );
 
+void deck_shuffle( struct Deck *deck );
+
 #endif
