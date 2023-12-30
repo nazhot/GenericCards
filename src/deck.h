@@ -1,6 +1,6 @@
 #ifndef DECK_H
 #define DECK_H
-#include <cstdint>
+#include <stdint.h>
 #include <stdbool.h>
 
 enum EmptyDeckOption {

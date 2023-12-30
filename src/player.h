@@ -1,6 +1,6 @@
 #ifndef PLAYER_H
 #define PLAYER_H
-#include <cstdint>
+#include <stdint.h>
 
 struct Player {
     struct Card *hand;
