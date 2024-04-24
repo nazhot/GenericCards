@@ -2,19 +2,25 @@
 #define DECK_H
 #include <stdint.h>
 #include <stdbool.h>
+#include <stdlib.h>
 
-enum EmptyDeckOption {
+typedef struct Card {
+    uint value: 4;
+    uint suit: 2;
+} Card;
+
+typedef enum EmptyDeckOption {
     EDO_END_GAME,
     EDO_SHUFFLE,
     EDO_DEAL_HANDS
-};
+} EmptyDeckOption;
 
-struct Deck {
-    unsigned int numCards;
-    unsigned int maxCards;
-    struct Card *cards;
-    enum EmptyDeckOption whenEmpty; 
-};
+typedef struct Deck {
+    uint numCards;
+    uint maxCards;
+    Card *cards;
+    EmptyDeckOption whenEmpty; 
+} Deck;
 
 /**
  * Initialize a Deck, without any Cards, specifying the maximum amount of Cards
