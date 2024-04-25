@@ -4,6 +4,7 @@
 
 
 int main( int argc, char *argv[] ) {
-    deck_initializeStandard();
+    Deck *deck = deck_initializeStandard();
+    deck_print( deck );
     return 0;
 }

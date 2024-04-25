@@ -38,3 +38,13 @@ Deck* deck_initializeStandard() {
     }
     return deck;
 }
+
+void deck_print( Deck *deck ) {
+    static const char values[] = {'A', '2', '3', '4', '5', '6', '7', '8', '9',
+                            'T', 'J', 'Q', 'K'};
+    static const char suits[] = {'D', 'C', 'H', 'S'};
+
+    for ( uint i = 0; i < deck->numCards; ++i ) {
+        printf( "%u: %c%c\n", i, values[deck->cards[i].value], suits[deck->cards[i].suit] );
+    }
+}

@@ -74,5 +74,6 @@ bool deck_addCard( Deck *deck, Card card );
 bool deck_addCards( Deck *deck, uint64_t cards );
 
 void deck_shuffle( Deck *deck );
+void deck_print( Deck *deck );
 
 #endif
