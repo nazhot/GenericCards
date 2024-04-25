@@ -29,7 +29,7 @@ typedef struct Deck {
  * @parameter maxCards how many Cards the Deck can ever hold
  * @return pointer to the created Deck
  */
-struct Deck* deck_initializeEmpty( uint16_t maxCards );
+Deck* deck_initializeEmpty( uint maxCards );
 
 /**
  * Initialize a Deck, using an int to represent the Cards within it
@@ -40,14 +40,14 @@ struct Deck* deck_initializeEmpty( uint16_t maxCards );
  * @param cards bits representing the Cards present in the Deck
  * @return pointer to the created Deck
  */
-struct Deck* deck_initializeFromInt( uint64_t cards );
+Deck* deck_initializeFromInt( uint64_t cards );
 
 /**
  * Initialize a standard Deck, with Ace through King, all Suits
  *
  * @return pointer to the created Deck
  */
-struct Deck* deck_initializeStandard();
+Deck* deck_initializeStandard();
 
 /**
  * Add a Card to a Deck, using an int to represent the Card
@@ -59,7 +59,7 @@ struct Deck* deck_initializeStandard();
  * @param card representing the Card to add to the Deck
  * @return whether the function was able to add the Card or not
  */
-bool deck_addCard( struct Deck *deck, uint8_t card );
+bool deck_addCard( Deck *deck, Card card );
 
 /**
  * Add Cards to a Deck, using an int to represent the Cards
@@ -71,8 +71,8 @@ bool deck_addCard( struct Deck *deck, uint8_t card );
  * @param cards bits representing the Cards to add to the Deck
  * @return whether the function was able to add the Cards or not
  */
-bool deck_addCards( struct Deck *deck, uint64_t cards );
+bool deck_addCards( Deck *deck, uint64_t cards );
 
-void deck_shuffle( struct Deck *deck );
+void deck_shuffle( Deck *deck );
 
 #endif
