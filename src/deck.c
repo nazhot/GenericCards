@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <stdbool.h>
+#include <assert.h>
 
 Deck* deck_initializeEmpty( uint maxCards ) {
     Deck *deck = malloc( sizeof( Deck ) );
@@ -46,5 +47,15 @@ void deck_print( Deck *deck ) {
 
     for ( uint i = 0; i < deck->numCards; ++i ) {
         printf( "%u: %c%c\n", i, values[deck->cards[i].value], suits[deck->cards[i].suit] );
+    }
+}
+
+void deck_shuffle( Deck *deck ) {
+    for ( uint i = deck->numCards - 1; i >= 1; --i ) {
+        uint j = drand48() * ( i + 1 ); //+1 because conversion from double to uint will just chop off decimal part, and drand48 will always be less than 1
+        assert( j <= i );
+        Card temp = deck->cards[i];
+        deck->cards[i] = deck->cards[j];
+        deck->cards[j] = temp;
     }
 }
