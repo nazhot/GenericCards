@@ -75,5 +75,10 @@ bool deck_addCards( Deck *deck, uint64_t cards );
 
 void deck_shuffle( Deck *deck );
 void deck_print( Deck *deck );
+void deck_transferNCardsFromStart( Deck *dest, Deck *src, const uint numCards );
+void deck_transferNCardsFromEnd( Deck *dest, Deck *src, const uint numCards );
+void deck_transferAllCards( Deck *dest, Deck *src );
+Card deck_popFromStart( Deck *deck );
+Card deck_popFromEnd( Deck *deck );
 
 #endif

@@ -59,3 +59,34 @@ void deck_shuffle( Deck *deck ) {
         deck->cards[j] = temp;
     }
 }
+
+Card deck_popFromStart( Deck *deck ) {
+    if ( deck->numCards == 0 ) return ( Card ) {0};
+    Card temp = deck->cards[0];
+    for ( uint i = 1; i < deck->numCards; ++i ) {
+        deck->cards[i - 1] = deck->cards[i];
+    }
+    --deck->numCards;
+
+    return temp;
+}
+Card deck_popFromEnd( Deck *deck ) {
+    if ( deck->numCards == 0 ) return ( Card ) {0};
+    return deck->cards[--deck->numCards];
+}
+
+void deck_transferNCardsFromStart( Deck *dest, Deck *src, const uint numCards ) {
+    if ( numCards > ( dest->maxCards - dest->numCards ) ) {
+        fprintf( stderr, "Not enough room left in dest to transfer cards:\nRoom Left: %u, Num Cards to Add: %u\n", dest->maxCards - dest->numCards, numCards );
+        return;
+    }
+    if ( numCards > src->numCards ) {
+        fprintf( stderr, "Not enough cards in source to transfer:\nCards in Source: %u, Num Cards to Add: %u\n", src->numCards, dest->maxCards - dest->numCards );
+        return;
+    }
+    for ( uint i = 0; i < numCards; ++i ) {
+        deck_addCard( dest, deck_popFromStart( src ) );
+    }
+}
+void deck_transferNCardsFromEnd( Deck *dest, Deck *src, const uint numCards );
+void deck_transferAllCards( Deck *dest, Deck *src );
