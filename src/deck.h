@@ -80,5 +80,6 @@ void deck_transferNCardsFromEnd( Deck *dest, Deck *src, const uint numCards );
 void deck_transferAllCards( Deck *dest, Deck *src );
 Card deck_popFromStart( Deck *deck );
 Card deck_popFromEnd( Deck *deck );
+void deck_empty( Deck *deck );
 
 #endif

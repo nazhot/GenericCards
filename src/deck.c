@@ -114,3 +114,6 @@ void deck_transferAllCards( Deck *dest, Deck *src ) {
         deck_addCard( dest, deck_popFromEnd( src )  );
     }
 }
+void deck_empty( Deck *deck ) {
+    deck->numCards = 0;
+}
