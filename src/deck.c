@@ -53,6 +53,7 @@ void deck_print( Deck *deck ) {
 }
 
 void deck_shuffle( Deck *deck ) {
+    if ( !deck->numCards ) return;
     for ( uint i = deck->numCards - 1; i >= 1; --i ) {
         uint j = drand48() * ( i + 1 ); //+1 because conversion from double to uint will just chop off decimal part, and drand48 will always be less than 1
         assert( j <= i );
